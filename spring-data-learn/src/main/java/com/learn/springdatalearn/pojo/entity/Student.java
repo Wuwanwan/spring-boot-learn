@@ -1,12 +1,12 @@
 package com.learn.springdatalearn.pojo.entity;
 
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * 学生表
@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
  * @author wuww
  * @version 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-public class Student {
+public class Student extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -29,12 +29,5 @@ public class Student {
     private Integer age;
 
     private String gender;
-
-    @CreatedDate
-    private LocalDateTime createTime;
-
-    @LastModifiedDate
-    private LocalDateTime updateTime;
-
 
 }

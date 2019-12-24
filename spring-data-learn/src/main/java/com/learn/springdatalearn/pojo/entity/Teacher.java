@@ -1,23 +1,22 @@
 package com.learn.springdatalearn.pojo.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
 /**
  * @author wuww
  * @version 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-public class Teacher {
+public class Teacher extends BaseEntity {
 
     @Id
     @GeneratedValue(generator = "jpa")
@@ -30,11 +29,5 @@ public class Teacher {
     private Integer age;
 
     private String gender;
-
-    @CreatedDate
-    private LocalDateTime createTime;
-
-    @LastModifiedDate
-    private LocalDateTime updateTime;
 
 }
